@@ -1,4 +1,5 @@
 using Assisgnment.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -20,6 +21,31 @@ namespace Assisgnment.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult ServerError()
+        {
+            Response.StatusCode = StatusCodes.Status500InternalServerError;
+            return View("InternalServerError");
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public new IActionResult StatusCode(int code)
+        {
+            if (code == StatusCodes.Status404NotFound)
+            {
+                Response.StatusCode = code;
+                return View("NotFound");
+            }
+
+            if (code >= StatusCodes.Status500InternalServerError)
+            {
+                Response.StatusCode = StatusCodes.Status500InternalServerError;
+                return View("InternalServerError");
+            }
+
+            return View("NotFound");
         }
     }
 }
