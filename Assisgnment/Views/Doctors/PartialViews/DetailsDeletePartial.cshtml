@@ -1,0 +1,52 @@
+@model DoctorViewModel
+
+@if (!string.IsNullOrEmpty(Model.ImageName))
+{
+    <div class="mb-3 text-center">
+        <img src="~/Files/Images/@Model.ImageName" alt="@Model.Name" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px; object-fit: cover;" />
+    </div>
+}
+
+<div class="form-group mb-3">
+    <label asp-for="Name" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Name" />
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Specialization" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Specialization" />
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Email" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Email" />
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Phone" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Phone" />
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Address" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Address" />
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Salary" class="form-label"></label>
+    <input readonly class="form-control" asp-for="Salary" />
+</div>
+
+<div class="form-group mb-3">
+    <label class="form-label">Status</label>
+    <div>
+        @if (Model.IsActive)
+        {
+            <span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>Active</span>
+        }
+        else
+        {
+            <span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>Inactive</span>
+        }
+    </div>
+</div>

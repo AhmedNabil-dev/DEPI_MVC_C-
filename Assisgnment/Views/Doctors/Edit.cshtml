@@ -1,0 +1,28 @@
+@model DoctorViewModel
+@{
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<div class="row justify-content-center mt-3">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h4 class="mb-0"><i class="fa-solid fa-user-pen me-2"></i>Edit Doctor Information</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                    <partial name="PartialViews/CreateEditPartial" model="@Model" />
+                    <div class="d-flex gap-2 mt-4">
+                        <button type="submit" class="btn btn-success"><i class="fa-solid fa-save me-1"></i>Save Changes</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
