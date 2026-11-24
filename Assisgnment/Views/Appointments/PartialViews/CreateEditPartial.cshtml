@@ -1,0 +1,44 @@
+@model AppointmentViewModel
+
+<input type="hidden" asp-for="Id" />
+
+<div class="row">
+    <div class="col-md-6 form-group mb-3">
+        <label asp-for="DoctorId" class="form-label"></label>
+        <select class="form-select" asp-items="ViewBag.Doctors" asp-for="DoctorId">
+            <option value="">-- Select Doctor --</option>
+        </select>
+        <span class="text-danger" asp-validation-for="DoctorId"></span>
+    </div>
+    <div class="col-md-6 form-group mb-3">
+        <label asp-for="PatientId" class="form-label"></label>
+        <select class="form-select" asp-items="ViewBag.Patients" asp-for="PatientId">
+            <option value="">-- Select Patient --</option>
+        </select>
+        <span class="text-danger" asp-validation-for="PatientId"></span>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 form-group mb-3">
+        <label asp-for="AppointmentDate" class="form-label"></label>
+        <input class="form-control" asp-for="AppointmentDate" type="datetime-local" />
+        <span class="text-danger" asp-validation-for="AppointmentDate"></span>
+    </div>
+    <div class="col-md-6 form-group mb-3">
+        <label asp-for="Status" class="form-label"></label>
+        <select class="form-select" asp-for="Status">
+            <option value="Scheduled">Scheduled</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Pending">Pending</option>
+        </select>
+        <span class="text-danger" asp-validation-for="Status"></span>
+    </div>
+</div>
+
+<div class="form-group mb-3">
+    <label asp-for="Notes" class="form-label"></label>
+    <textarea class="form-control" asp-for="Notes" rows="3" placeholder="Symptoms, medical observations, prescription details..."></textarea>
+    <span class="text-danger" asp-validation-for="Notes"></span>
+</div>

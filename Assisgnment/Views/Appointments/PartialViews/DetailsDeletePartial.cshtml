@@ -1,0 +1,56 @@
+@model AppointmentViewModel
+
+<div class="row">
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Doctor</label>
+        <input readonly class="form-control" value="@Model.Doctor?.Name" />
+    </div>
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Doctor Specialization</label>
+        <input readonly class="form-control" value="@Model.Doctor?.Specialization" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Patient</label>
+        <input readonly class="form-control" value="@Model.Patient?.Name" />
+    </div>
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Patient Phone</label>
+        <input readonly class="form-control" value="@Model.Patient?.Phone" />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Appointment Date & Time</label>
+        <input readonly class="form-control" value="@Model.AppointmentDate.ToString("yyyy-MM-dd HH:mm")" />
+    </div>
+    <div class="col-md-6 form-group mb-3">
+        <label class="form-label">Status</label>
+        <div>
+            @if (Model.Status == "Completed")
+            {
+                <span class="badge bg-success fs-6"><i class="fa-solid fa-check me-1"></i>Completed</span>
+            }
+            else if (Model.Status == "Cancelled")
+            {
+                <span class="badge bg-danger fs-6"><i class="fa-solid fa-xmark me-1"></i>Cancelled</span>
+            }
+            else if (Model.Status == "Pending")
+            {
+                <span class="badge bg-warning text-dark fs-6"><i class="fa-solid fa-clock me-1"></i>Pending</span>
+            }
+            else
+            {
+                <span class="badge bg-primary fs-6"><i class="fa-solid fa-calendar-check me-1"></i>Scheduled</span>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="form-group mb-3">
+    <label class="form-label">Notes</label>
+    <textarea readonly class="form-control" rows="3">@Model.Notes</textarea>
+</div>
