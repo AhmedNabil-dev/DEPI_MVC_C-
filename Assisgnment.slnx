@@ -1,3 +1,5 @@
 <Solution>
+  <Project Path="Assisgnment.BLL/Assisgnment.BLL.csproj" />
+  <Project Path="Assisgnment.DAL/Assisgnment.DAL.csproj" />
   <Project Path="Assisgnment/Assisgnment.csproj" />
 </Solution>
